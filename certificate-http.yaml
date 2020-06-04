@@ -1,0 +1,18 @@
+apiVersion: cert-manager.io/v1alpha2
+kind: Certificate
+metadata:
+  name: vault-jx 
+  namespace: jx
+spec:
+  secretName: tls-aws-kenchlightyear-com-p
+  dnsNames:
+  - vault-jx.aws.kenchlightyear.com
+  acme:
+    config:
+    - http01:
+        ingressClass: nginx
+      domains:
+      - vault-jx.aws.kenchlightyear.com
+  issuerRef:
+    name: http-issuer
+    kind: Issuer

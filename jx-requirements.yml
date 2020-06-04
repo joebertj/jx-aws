@@ -1,0 +1,47 @@
+autoUpdate:
+  enabled: false
+  schedule: ""
+terraform: true
+cluster:
+  clusterName: "jx-aws"
+  environmentGitOwner: ""
+  provider: eks
+  region: "us-west-2"
+gitops: true
+environments:
+  - key: dev
+  - key: staging
+  - key: production
+ingress:
+  domain: "aws.kenchlightyear.com"
+  ignoreLoadBalancer: true
+  externalDNS: true
+  tls:
+    email: "joebert@kenchlightyear.com"
+    enabled: true
+    production: true
+kaniko: true
+secretStorage: vault
+vault:
+  aws:
+    iamUserName: ""
+    dynamoDBTable: "vault-unseal-jx-aws-6OE3EnFJ"
+    dynamoDBRegion: "us-west-2"
+    kmsKeyId: "106a108a-0ca6-4fc9-bf6c-34cce784cc31"
+    kmsRegion: "us-west-2"
+    s3Bucket: "vault-unseal-jx-aws-20200603120224650600000001"
+    s3Region: "us-west-2"
+storage:
+  logs:
+    enabled: true
+    url: s3://logs-jx-aws-20200603065848630700000007
+  reports:
+    enabled: true
+    url: s3://reports-jx-aws-20200603065848618600000002
+  repository:
+    enabled: true
+    url: s3://repository-jx-aws-20200603065851137100000008
+versionStream:
+  ref: master
+  url: https://github.com/jenkins-x/jenkins-x-versions.git
+webhook: lighthouse

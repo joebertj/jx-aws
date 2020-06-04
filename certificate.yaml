@@ -1,0 +1,21 @@
+apiVersion: cert-manager.io/v1alpha2
+kind: Certificate
+metadata:
+  name: tls-aws-kenchlightyear-com-p
+  namespace: jx
+spec:
+  secretName: tls-aws-kenchlightyear-com-p
+  issuerRef:
+    name: letsencrypt-prod
+    kind: Issuer
+  commonName: '*.aws.kenchlightyear.com'
+  dnsNames:
+  - aws.kenchlightyear.com
+  - '*.aws.kenchlightyear.com'
+  acme:
+    config:
+    - dns01:
+        provider: route53
+      domains:
+      - aws.kenchlightyear.com
+      - '*.aws.kenchlightyear.com'

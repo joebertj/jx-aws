@@ -1,0 +1,23 @@
+apiVersion: cert-manager.io/v1alpha2
+kind: Issuer
+metadata:
+  name: letsencrypt-prod
+  namespace: jx
+spec:
+  acme:
+    email: joebert@kenchlightyear.com
+    privateKeySecretRef:
+      name: letsencrypt-prod
+    server: https://acme-v02.api.letsencrypt.org/directory
+    solvers:
+    - http01:
+        ingress:
+          class: nginx
+    - dns01:
+        route53:
+          accessKeyID: AKIAQKRWXW2SO7HVFPDR
+          hostedZoneId: Z04883632JNJ3DR3P4LVR
+          region: us-west-2
+          secretAccessKeySecretRef:
+            key: password.txt
+            name: aws-route53-creds
