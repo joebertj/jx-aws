@@ -15,7 +15,7 @@ jx step replicate secret "tls-*" -r jx-staging -r jx-production --create-namespa
 ```
 ### kubectl
 ```
-kubectl patch deployment -n kube-system jxing-nginx-ingress-controller --type='json' -p='[{"op": "add", "path": "/spec/template/spec/containers/0/args/-", "value": "--default-ssl-certificate=jx/tls-aws-kenchlightyear-com-p"}]'
+kubectl patch deployment -n kube-system jxing-nginx-ingress-controller --type='json' -p='[{"op": "add", "path": "/spec/template/spec/containers/0/args/-", "value": "--default-ssl-certificate=jx/tls-kenchlightyear-com-p"}]'
 ```
 
 ## ACM

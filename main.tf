@@ -3,7 +3,7 @@ module "eks-jx" {
   apex_domain = "kenchlightyear.com"
   cluster_name = "jx-aws"
   cluster_version = "1.15"
-  create_and_configure_subdomain = "true"
+  create_and_configure_subdomain = false
   desired_node_count = 2
   enable_external_dns = true 
   enable_logs_storage = true
@@ -12,13 +12,13 @@ module "eks-jx" {
   enable_spot_instances = true
   enable_tls = true
   force_destroy = true
-  max_node_count = 8
+  max_node_count = 4
   min_node_count = 2
-  node_machine_type = "m1.large"
-  spot_price = "0.02"
+  node_machine_type = "t3a.large"
+  spot_price = "0.03"
   production_letsencrypt = true
   region = "us-west-2"
-  subdomain = "aws"
+  subdomain = ""
   tls_email = "joebert@kenchlightyear.com"
   vpc_cidr_block = "172.15.0.0/16"
   vpc_name = "tf-jx-aws"

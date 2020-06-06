@@ -13,7 +13,7 @@ environments:
   - key: staging
   - key: production
 ingress:
-  domain: "aws.kenchlightyear.com"
+  domain: "kenchlightyear.com"
   ignoreLoadBalancer: true
   externalDNS: true
   tls:
