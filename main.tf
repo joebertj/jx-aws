@@ -1,19 +1,21 @@
 module "eks-jx" {
-  source  = "jenkins-x/eks-jx/aws"
+  source  = "/home/joebert/terraform-aws-eks-jx"
   apex_domain = "kenchlightyear.com"
   cluster_name = "jx-aws"
   cluster_version = "1.15"
   create_and_configure_subdomain = "true"
-  desired_node_count = 1
+  desired_node_count = 2
   enable_external_dns = true 
   enable_logs_storage = true
   enable_reports_storage = true
   enable_repository_storage = true
+  enable_spot_instances = true
   enable_tls = true
   force_destroy = true
-  max_node_count = 2
-  min_node_count = 1
-  node_machine_type = "t3.large"
+  max_node_count = 8
+  min_node_count = 2
+  node_machine_type = "m1.large"
+  spot_price = "0.02"
   production_letsencrypt = true
   region = "us-west-2"
   subdomain = "aws"
