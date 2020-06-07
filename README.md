@@ -21,4 +21,5 @@ kubectl patch deployment -n kube-system jxing-nginx-ingress-controller --type='j
 ## ACM
 `service.beta.kubernetes.io/aws-load-balancer-ssl-cert: "certificate ARN"`
 
-
+## Cleanup
+`kubectl delete pod --field-selector=status.phase==Succeeded`
